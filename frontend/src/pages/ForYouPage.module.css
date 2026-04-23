@@ -1,0 +1,49 @@
+.page { padding-top: var(--nav-h); min-height: 100vh; }
+.inner { padding: 3.5rem 0 6rem; }
+.header { margin-bottom: 3rem; }
+.eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--gold); font-weight: 600; margin-bottom: 0.5rem; }
+.title { font-family: var(--font-display); font-size: clamp(2.4rem,5vw,3.5rem); letter-spacing: 3px; }
+.subtitle { color: var(--text-soft); font-size: 0.95rem; margin-top: 0.4rem; }
+
+.section { margin-bottom: 4rem; }
+.sectionHeader {
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;
+}
+.sectionTitle { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 2px; }
+.sectionSub   { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
+.clearBtn {
+  background: none; border: 1px solid var(--border);
+  color: var(--text-muted); padding: 0.4rem 0.9rem;
+  border-radius: var(--r-sm); font-size: 0.78rem;
+  font-family: var(--font-sans); cursor: pointer;
+  transition: all 0.15s;
+}
+.clearBtn:hover { border-color: var(--red); color: #ff8080; }
+
+.empty, .emptyState {
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 1rem; padding: 6rem 2rem;
+}
+.emptyIcon  { font-size: 3rem; opacity: 0.5; }
+.emptyTitle { font-family: var(--font-display); font-size: 2rem; letter-spacing: 2px; color: var(--text-soft); }
+.emptySub   { font-size: 0.9rem; color: var(--text-muted); max-width: 380px; line-height: 1.6; }
+.emptyActions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+.btn {
+  background: var(--gold); color: #000; border: none;
+  padding: 0.75rem 2rem; border-radius: var(--r-sm);
+  font-family: var(--font-sans); font-size: 0.875rem;
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; cursor: pointer; transition: filter 0.15s;
+}
+.btn:hover { filter: brightness(1.08); }
+.btnOutline {
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border-md);
+  padding: 0.75rem 2rem; border-radius: var(--r-sm);
+  font-family: var(--font-sans); font-size: 0.875rem;
+  font-weight: 500; cursor: pointer; transition: all 0.15s;
+}
+.btnOutline:hover { border-color: var(--gold); color: var(--gold); }

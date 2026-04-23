@@ -1,0 +1,54 @@
+.wrap { padding: 2rem 0; }
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.poster, .line, .lineShort, .rowTitle, .rowSub, .gridLabel, .chip {
+  background: linear-gradient(90deg,
+    var(--bg-card) 25%,
+    var(--bg-elevated) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: 6px;
+}
+
+/* Card skeleton */
+.card { flex-shrink: 0; width: 165px; }
+.poster { width: 100%; aspect-ratio: 2/3; border-radius: var(--r-md); }
+.body { padding: 0.6rem 0.25rem; }
+.line { height: 12px; margin-bottom: 6px; border-radius: 4px; }
+.lineShort { height: 10px; width: 60%; border-radius: 4px; animation-delay: 0.1s; }
+
+/* Row section */
+.rowSection { margin-bottom: 3rem; }
+.rowHeader { margin-bottom: 1.25rem; }
+.rowTitle { height: 24px; width: 260px; margin-bottom: 8px; }
+.rowSub { height: 14px; width: 160px; }
+.row {
+  display: flex; gap: 1rem; overflow: hidden;
+  padding-bottom: 0.5rem;
+}
+
+/* Grid section */
+.gridSection { margin-bottom: 3rem; }
+.gridLabel { height: 28px; width: 240px; margin-bottom: 1.5rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 1.25rem;
+}
+.grid .poster { width: 100%; }
+.grid .card { width: 100%; }
+
+/* Filter chips */
+.filterRow { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.chip { height: 32px; width: 90px; border-radius: var(--r-full); }
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.85rem; }
+  .card { width: 140px; }
+}

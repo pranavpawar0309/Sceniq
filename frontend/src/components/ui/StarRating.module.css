@@ -1,0 +1,25 @@
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.star {
+  background: none;
+  border: none;
+  color: var(--border-md);
+  cursor: pointer;
+  transition: color 0.1s, transform 0.1s;
+  padding: 1px;
+  line-height: 1;
+}
+.star:hover { transform: scale(1.2); }
+.active { color: var(--gold); }
+.label {
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-left: 4px;
+}
+.sm .star { font-size: 0.9rem; }
+.md .star { font-size: 1.2rem; }
+.lg .star { font-size: 1.6rem; }

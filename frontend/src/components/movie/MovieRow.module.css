@@ -1,0 +1,105 @@
+.section {
+  margin-bottom: 3.5rem;
+}
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding: 0 0.25rem;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+.arrows {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.arrow {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-md);
+  color: var(--text-soft);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.arrow:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+/* Horizontal scroll row */
+.row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.75rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.row::-webkit-scrollbar { display: none; }
+
+.cardWrap {
+  flex-shrink: 0;
+  width: 165px;
+  scroll-snap-align: start;
+}
+
+/* Skeleton */
+.skeletonCard {
+  flex-shrink: 0;
+  width: 165px;
+}
+.skeletonPoster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: var(--r-md);
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-elevated) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+.skeletonBody { padding: 0.6rem 0.25rem; }
+.skeletonLine {
+  height: 12px; border-radius: 4px; margin-bottom: 6px;
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-elevated) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+.skeletonLineShort {
+  height: 10px; width: 60%; border-radius: 4px;
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-elevated) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  animation-delay: 0.1s;
+}
+.skeletonTitle {
+  height: 24px; width: 280px; border-radius: 4px; margin-bottom: 8px;
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-elevated) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+.skeletonSubtitle {
+  height: 14px; width: 160px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-elevated) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 600px) {
+  .cardWrap { width: 140px; }
+  .skeletonCard { width: 140px; }
+  .title { font-size: 1.2rem; }
+}

@@ -1,0 +1,252 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+.modal {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-md);
+  border-radius: var(--r-lg);
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  box-shadow: var(--shadow-modal);
+}
+.closeBtn {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  z-index: 10;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  border: 1px solid var(--border-md);
+  color: var(--text-soft);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  backdrop-filter: blur(4px);
+}
+.closeBtn:hover { color: var(--text); background: var(--bg-elevated); }
+
+/* Backdrop */
+.backdropWrap {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+.backdrop {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.backdropFallback {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
+  font-family: var(--font-display);
+  font-size: 4rem;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.08);
+}
+.backdropGradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--bg-surface) 0%, rgba(15,15,26,0.4) 55%, transparent 100%);
+}
+
+/* Watch Trailer button */
+.trailerBtn {
+  position: absolute;
+  bottom: 5.5rem;
+  left: 2rem;
+  z-index: 2;
+  display: flex; align-items: center; gap: 0.5rem;
+  background: rgba(0,0,0,0.72);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: #fff;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-sans);
+  font-size: 0.82rem; font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.18s;
+}
+.trailerBtn:hover:not(:disabled) { background: rgba(220,38,38,0.85); border-color: transparent; transform: scale(1.04); }
+.trailerBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+.playCircle {
+  width: 22px; height: 22px;
+  border-radius: 50%; background: #fff; color: #000;
+  font-size: 0.65rem;
+  display: flex; align-items: center; justify-content: center;
+  padding-left: 2px; flex-shrink: 0;
+}
+.trailerSpinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Body */
+.body {
+  padding: 0 2rem 2.5rem;
+  margin-top: -72px;
+  position: relative;
+  z-index: 1;
+}
+.titleRow {
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 3px; line-height: 1;
+}
+.tagline {
+  font-family: var(--font-serif);
+  color: var(--text-soft);
+  font-size: 0.95rem; margin-top: 0.4rem;
+}
+.actions { display: flex; gap: 0.75rem; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
+
+.wlBtn {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 1.1rem; border-radius: var(--r-sm);
+  background: transparent; border: 1px solid var(--border-md);
+  color: var(--text-soft); font-size: 0.82rem; font-weight: 600;
+  font-family: var(--font-sans); cursor: pointer; transition: all 0.18s;
+}
+.wlBtn:hover  { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+.wlActive     { border-color: var(--gold) !important; color: var(--gold) !important; background: var(--gold-dim) !important; }
+
+.watchBtn {
+  display: flex; align-items: center; gap: 0.35rem;
+  padding: 0.5rem 1rem; border-radius: var(--r-sm);
+  background: rgba(76,175,110,0.15); color: var(--green);
+  border: 1px solid rgba(76,175,110,0.35);
+  font-size: 0.8rem; font-weight: 600;
+  text-decoration: none; transition: all 0.15s;
+  font-family: var(--font-sans); white-space: nowrap;
+}
+.watchBtn:hover { background: rgba(76,175,110,0.25); }
+
+.imdbBtn {
+  display: flex; align-items: center; gap: 0.35rem;
+  padding: 0.5rem 1rem; border-radius: var(--r-sm);
+  background: #f5c518; color: #000;
+  font-size: 0.8rem; font-weight: 800;
+  text-decoration: none; transition: filter 0.15s;
+  font-family: var(--font-sans);
+}
+.imdbBtn:hover { filter: brightness(1.1); }
+
+.badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+
+/* Rating row */
+.ratingRow {
+  display: flex; align-items: center; gap: 0.85rem;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-elevated);
+  border: 0.5px solid var(--border);
+  border-radius: var(--r-md);
+  flex-wrap: wrap;
+}
+.ratingLabel {
+  font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--text-muted);
+  font-weight: 600; flex-shrink: 0;
+}
+.ratingHint { font-size: 0.78rem; color: var(--text-muted); margin-left: auto; }
+.signInLink {
+  background: none; border: none; color: var(--gold);
+  font-size: 0.78rem; font-family: var(--font-sans);
+  cursor: pointer; text-decoration: underline;
+}
+
+.overview {
+  color: var(--text-soft); line-height: 1.85;
+  font-size: 0.95rem; font-weight: 300; margin-bottom: 1.75rem;
+}
+
+.credits {
+  display: flex; flex-wrap: wrap; gap: 1.5rem 3rem;
+  margin-bottom: 2rem; padding-bottom: 1.75rem;
+  border-bottom: 0.5px solid var(--border);
+}
+.credit { display: flex; flex-direction: column; gap: 0.25rem; }
+.creditLabel {
+  font-size: 0.68rem; text-transform: uppercase;
+  letter-spacing: 0.18em; color: var(--gold); font-weight: 600;
+}
+.creditValue { font-size: 0.88rem; color: var(--text-soft); }
+
+/* Similar */
+.similarSection {}
+.similarLabel {
+  font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.2em; color: var(--gold);
+  font-weight: 600; margin-bottom: 1rem;
+}
+.simGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.85rem;
+}
+.simSkeleton {
+  aspect-ratio: 2/3; border-radius: var(--r-sm);
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-elevated) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.simCard {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-sm); overflow: hidden;
+  cursor: pointer; transition: transform 0.15s, border-color 0.15s;
+}
+.simCard:hover { transform: translateY(-4px); border-color: var(--border-md); }
+.simPoster { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
+.simPosterFallback {
+  width: 100%; aspect-ratio: 2/3;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-elevated);
+  font-family: var(--font-display); font-size: 1.2rem;
+  color: rgba(255,255,255,0.15);
+}
+.simName { font-size: 0.72rem; padding: 0.4rem 0.5rem 0.1rem; color: var(--text-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.simRating { display: flex; align-items: center; gap: 0.2rem; font-size: 0.68rem; color: var(--gold); padding: 0 0.5rem 0.4rem; font-weight: 600; }
+
+@media (max-width: 600px) {
+  .body { padding: 0 1.25rem 2rem; margin-top: -48px; }
+  .titleRow { flex-direction: column; align-items: flex-start; }
+  .backdropWrap { height: 220px; }
+  .actions { gap: 0.5rem; }
+}
+
+/* Watched button in modal */
+.watchedModalBtn {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 1.1rem; border-radius: var(--r-sm);
+  background: transparent; border: 1px solid var(--border-md);
+  color: var(--text-soft); font-size: 0.82rem; font-weight: 600;
+  font-family: var(--font-sans); cursor: pointer; transition: all 0.18s;
+}
+.watchedModalBtn:hover { border-color: var(--green); color: var(--green); background: rgba(76,175,110,0.1); }
+.watchedModalActive { border-color: var(--green) !important; color: var(--green) !important; background: rgba(76,175,110,0.15) !important; }
