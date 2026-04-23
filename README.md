@@ -116,8 +116,7 @@ ALLOWED_ORIGINS=http://localhost:5173
 
 ## 🎓 Built By
 
-**Pranav** — Final Year B.Tech, AI & Data Science  
-Vasantdada Patil Pratishthan's College of Engineering, Mumbai
+**Pranav** — 3rd Year B.Tech, AI & Data Science  
 
 ---
 
